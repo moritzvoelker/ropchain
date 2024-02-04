@@ -137,8 +137,15 @@ I don't want to undermine the relationship we have here, but I have to say, I li
 ## Usage
 "I have read through all this and still don't know how to actually execute this." I hear you, so now the three step plan you need to do, to actually execute the attack, complete with expected output.
 ```sh
+$ make                                                              # we build the project
+clang -Og -g -Wall -Wextra -Wpedantic -fno-stack-protector -o ropchain main.c asm.S
+$ ./ropchain stack                                                  # we generate our message to pass as a stack. You might need to edit this, if it doesn't work on your machine
+$ cat stack.bin | setarch --addr-no-randomize ./ropchain greet      # we pipe the generated file into our process, with address space randomization disabled
+Please write your name: Hello AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!
 
+rax: 0x0000000042421337, rbx: 0x7d6e77707b707868, rcx: 0x006e69656d74656c
 ```
+This will sadly only work on x86_64 linux, because of technical reasons. Because why would we all agree on one (very sensible and officially recommended by the manufacturer) ABI, huh Microsoft? Can you riddle me this?
 
 ## Special thanks
 To me. I did all the work alone.
